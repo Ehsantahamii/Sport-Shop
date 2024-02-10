@@ -1,0 +1,30 @@
+{
+    "data":[
+        {
+            "id":1,
+            "alt":"slider-banner",
+            "url":"/images/slider-01.webp",
+            "delay": 5000
+
+    
+        },
+        {
+            "id":2,
+            "alt":"slider-banner",
+            "url":"/images/slider-02.webp",
+            "delay": 5000
+
+            
+    
+        },
+        {
+            "id":3,
+            "alt":"slider-banner",
+            "url":"/images/slider-03.webp",
+            "delay": 5000
+
+    
+        }
+    ]
+    
+}
