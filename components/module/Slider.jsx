@@ -15,7 +15,6 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 export default function Slider() {
 
     const [slide, setSlide] = useState([]);
-    console.log(slide);
 
     useEffect(() => {
         fetch("http://localhost:3001/data").then(res => res.json()).then(data => setSlide(data))

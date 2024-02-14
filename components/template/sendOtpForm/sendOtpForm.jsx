@@ -1,5 +1,7 @@
 import { sendOtp, checkOtp } from "@/services/auth";
+import { getProfile } from "@/services/user";
 import { setCookie } from "@/utils/cookie";
+
 import { toast } from 'react-toastify';
 
 
@@ -12,7 +14,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep, token, setToken }) => {
 
         const { res, error } = await sendOtp(mobile);
 
-        if (res) setStep(2); setCookie(res.data); setToken(res.data); toast.success(res.data.message);
+        if (res) setStep(2); setCookie(res.data); setToken(res.data); getProfile(res.data); toast.success(res.data.message);
         console.log(res.data.otpcode);
         if (error) toast.error("اتصال را بررسی کنید!");
 

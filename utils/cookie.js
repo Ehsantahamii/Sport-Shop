@@ -18,8 +18,8 @@ async function setBearerCookie(data) {
 }
 
 async function getCookie() {
-  const bearerCookie = cookies().get("bearerToken");
+  const bearerCookie = cookies().get("bearerToken").value;
   return bearerCookie;
 }
 
-export { setCookie, setBearerCookie, getCookie };
+export { setCookie, setBearerCookie, getCookie};

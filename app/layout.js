@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 import { yekanBakh } from "@/utils/fonts";
+import TanstackProvider from "@/providers/TanstackProvider";
 
 export const metadata = {
   title: "فروشگاه لوازم ورزشی",
@@ -15,8 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={yekanBakh.className}>
         <ToastContainer stacked theme="light" rtl={true} closeOnClick={true} />
-
-        <main>{children}</main>
+        <TanstackProvider>
+          {children}
+        </TanstackProvider>
       </body>
     </html>
   );

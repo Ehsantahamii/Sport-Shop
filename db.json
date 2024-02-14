@@ -25,6 +25,45 @@
 
     
         }
+    ],
+    "category":[
+        {
+            "id":1,
+            "slug": "توپ ورزشی",
+            "title":"توپ ورزشی",
+            "image":"/images/top-category-01.webp"
+            
+        },
+        {
+            "id":2,
+            "slug": "لباس ورزشی",
+            "title":"لباس ورزشی",
+            "image":"/images/top-category-02.png"
+            
+        },
+        {
+            "id":3,
+            "slug": "کفش ورزشی",
+            "title":"کفش ورزشی",
+            "image":"/images/top-category-03.webp"
+            
+        },
+        {
+            "id":4,
+            "slug": "فوتبال دستی",
+            "title":"فوتبال دستی",
+            "image":"/images/top-category-04.jpg"
+            
+        },
+        {
+            "id":5,
+            "slug": "وسایل بدنسازی",
+            "title":"وسایل بدنسازی",
+            "image":"/images/gym.svg"
+            
+        }
     ]
+
+    
     
 }

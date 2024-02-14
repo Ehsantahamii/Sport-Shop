@@ -1,7 +1,7 @@
 import api from "../configs/api";
 
-const getProfile = () =>
+const getProfile = (data) =>
   api.get("products", {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${data.token}` },
   });
 export { getProfile };
