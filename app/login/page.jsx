@@ -1,21 +1,21 @@
 'use client'
 
-import { useState } from "react";
-import CheckOtpForm from "@/template//checkOtpForm/checkOtpForm";
+import { useEffect, useState } from "react";
 import SendOtpForm from "@/template//sendOtpForm/sendOtpForm";
-
+import CheckOtpForm from "@/template//checkOtpForm/checkOtpForm";
+import { useFormState } from "react-dom";
+import { login } from "actions/authAction";
+import { toast } from "react-toastify";
 
 
 const page = () => {
+
     const [step, setStep] = useState(1);
-    const [mobile, setMobile] = useState("");
-    const [otpCode, setOtpCode] = useState("");
-    const [token, setToken] = useState("");
 
     return (
         <div className="bg-slate-300 w-full h-screen">
-            {step === 1 && <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} token={token} setToken={setToken} />}
-            {step === 2 && <CheckOtpForm otpCode={otpCode} setOtpCode={setOtpCode} mobile={mobile} setStep={setStep} token={token} />}
+            {step === 1 && <SendOtpForm setStep={setStep} />}
+            {step === 2 && <CheckOtpForm />}
         </div>
     );
 };

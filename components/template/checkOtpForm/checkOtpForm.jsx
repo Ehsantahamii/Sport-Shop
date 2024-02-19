@@ -1,32 +1,17 @@
-
-import { setBearerCookie, getCookie } from "@/utils/cookie";
-import { checkOtp } from "@/services/auth";
-
+import { useEffect } from 'react';
+import { checkOtp } from 'actions/authAction';
+import { useFormState } from "react-dom";
 import { toast } from 'react-toastify';
+import SubmitBtn from '@/module//submitBtn';
 
 
 
-const CheckOtpForm = ({ setStep, setOtpCode, otpCode, mobile, token }) => {
+const CheckOtpForm = () => {
 
-    const submitHandler = async (event) => {
-        event.preventDefault()
-
-        if (otpCode.length !== 6) return;
-
-        const { res, error } = await checkOtp(otpCode, token);
-        if (res) {
-            toast.success(res.data.message);
-            setBearerCookie(res.data)
-            getCookie()
-        }
-
-        if (error) {
-            setStep(1); toast.error("مشکلی پیش آمده است کسکم!");
-        }
-
-        console.log(res, error);
-    }
-
+    const [stateOtp, formActionOtp] = useFormState(checkOtp, {});
+    useEffect(() => {
+        toast(stateOtp?.message, { type: `${stateOtp?.status}` });
+    }, [stateOtp]);
 
 
     return (
@@ -36,28 +21,24 @@ const CheckOtpForm = ({ setStep, setOtpCode, otpCode, mobile, token }) => {
                     <div className="flex items-center space-x-5 justify-center">
                         <h2>سایت فروشگاهی</h2>
                     </div>
-                    <form onSubmit={submitHandler}>
+                    <form action={formActionOtp}>
                         <div className="mt-5">
-                            <label className="font-semibold text-sm text-gray-600 pb-1 block" htmlFor="otpcode">کد به {mobile} ارسال شد.</label>
+                            <label className="font-semibold text-sm text-gray-600 pb-1 block" htmlFor="otp">کد ورود را وارد نمایید.</label>
                             <input
                                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                                 type="text"
+                                name='otp'
                                 id="otpcode"
-                                required
                                 placeholder="کد ورود"
-                                value={otpCode}
-                                onChange={e => setOtpCode(e.target.value)}
 
 
                             />
                         </div>
                         <div className="mt-5">
-                            <button
-                                className="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
-                                type="submit"
-                            >
-                                ارسال
-                            </button>
+                            <SubmitBtn
+                                title="ارسال"
+                                style="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+                            />
                         </div>
                     </form>
                     <div className="flex items-center justify-between mt-4">
