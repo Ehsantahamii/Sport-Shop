@@ -20,27 +20,18 @@ import { TbCategoryPlus } from "react-icons/tb";
 import { GrNote } from "react-icons/gr";
 import { HiShoppingBag } from "react-icons/hi";
 import { MdWeb } from "react-icons/md";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Skeleton } from "@/components/ui/skeleton"
 import UserChange from "./UserChange"
+import { ProfileCard } from "./ProfileCard";
+import { logout } from "@/actions/authAction";
+
 
 
 export default function Example() {
+
     return (
-        <Command className="bg-foreground px-4 py-4 w-[20dvw] max-w-[420px] min-w-[350px] card-shadow">
+        <Command className="sidebar bg-foreground px-4 py-4 w-[20dvw] max-w-[420px] min-w-[350px] card-shadow">
             <div className="flex justify-between items-center">
-                <div className="flex flex-vr gap-3 items-center">
-
-                    <Avatar className="w-28 h-28" >
-                        <AvatarImage src="/images/user-avatar.jpg" />
-                        <AvatarFallback>
-                            <Skeleton className="w-full h-full" />
-                        </AvatarFallback>
-
-                    </Avatar>
-                    <h2 className="text-white">احسان تهامی</h2>
-
-                </div>
+                <ProfileCard />
 
                 <UserChange />
             </div>
@@ -103,7 +94,12 @@ export default function Example() {
                         بازدید سایت
                     </Link>
                     </CommandItem>
-                    <CommandItem className="text-red-500 ">خروج از حساب کاربری</CommandItem>
+                    <CommandItem className="text-red-500 ">
+                        <form action={logout}>
+
+                            <button >خروج از حساب کاربری</button>
+                        </form>
+                    </CommandItem>
                 </CommandGroup>
             </Command>
 

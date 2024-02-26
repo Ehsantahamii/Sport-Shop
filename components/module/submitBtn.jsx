@@ -6,6 +6,7 @@ const SubmitBtn = ({ title, style }) => {
     const { pending } = useFormStatus();
     return (
         <button type='submit' disabled={pending} className={style}>
+
             {pending &&
                 <div className="lds-ring ml-4"><div></div><div></div><div></div><div></div></div>
             }

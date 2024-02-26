@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 const SendOtpForm = ({ setStep }) => {
   const [stateCellphone, formActionCellphone] = useFormState(login, {});
-  console.log(stateCellphone?.status);
   useEffect(() => {
     toast(stateCellphone?.message, { type: `${stateCellphone.status}` });
     if (stateCellphone.status === "success") {

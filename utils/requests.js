@@ -1,11 +1,13 @@
 import api from "@/configs/api";
 
-const getFetch = async (url) => {
-  const res = await fetch(`https://api.developmart.ir/${url}`, {
+const getFetch = async (url, headers = {}) => {
+  const res = await fetch(`https://nextjs-ecommerce.liara.run/api${url}`, {
     cache: "no-store",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      "Accept": "application/json",
+      ...headers,
+
     },
   });
 
@@ -17,13 +19,14 @@ const getFetch = async (url) => {
   }
 };
 
-const postFetch = async (url, body) => {
-  const res = await fetch(`https://api.developmart.ir/${url}`, {
+const postFetch = async (url, body, headers = {}) => {
+  const res = await fetch(`https://nextjs-ecommerce.liara.run/api${url}`, {
     cache: "no-store",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      "Accept": "application/json",
+      ...headers,
     },
     body: JSON.stringify(body),
   });

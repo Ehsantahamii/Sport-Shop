@@ -1,16 +1,28 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { checkOtp } from 'actions/authAction';
 import { useFormState } from "react-dom";
 import { toast } from 'react-toastify';
 import SubmitBtn from '@/module//submitBtn';
+import AuthContext from '@/context//authContext';
+import ResendOtpBtn from '@/module//ResendOtpBtn';
+import { useRouter } from 'next/navigation';
 
 
 
 const CheckOtpForm = () => {
 
     const [stateOtp, formActionOtp] = useFormState(checkOtp, {});
+    const { loginContext } = useContext(AuthContext);
+
+    const router = useRouter()
+
     useEffect(() => {
         toast(stateOtp?.message, { type: `${stateOtp?.status}` });
+        if (stateOtp?.status === 'success') {
+            loginContext(stateOtp.user);
+            router.push("/");
+
+        }
     }, [stateOtp]);
 
 
@@ -30,17 +42,16 @@ const CheckOtpForm = () => {
                                 name='otp'
                                 id="otpcode"
                                 placeholder="کد ورود"
-
-
                             />
                         </div>
-                        <div className="mt-5">
+                        <div className="mt-[0.8rem]">
                             <SubmitBtn
                                 title="ارسال"
                                 style="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
                             />
                         </div>
                     </form>
+                    <ResendOtpBtn />
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                         <a

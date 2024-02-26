@@ -7,6 +7,8 @@
       "@/utils/*":["utils/*"],
       "@/models/*":["models/*"],
       "@/configs/*":["configs/*"],
+      "@/context/*":["context/*"],
+      "@/actions/*":["actions/*"],
       "@/providers/*":["providers/*"],
       "@/services/*":["services/*"],
       "@/layouts/*":["components/layouts*"],

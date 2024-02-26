@@ -1,12 +1,8 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SendOtpForm from "@/template//sendOtpForm/sendOtpForm";
 import CheckOtpForm from "@/template//checkOtpForm/checkOtpForm";
-import { useFormState } from "react-dom";
-import { login } from "actions/authAction";
-import { toast } from "react-toastify";
-
 
 const page = () => {
 
