@@ -18,8 +18,8 @@ export async function ProfileCard() {
                 </AvatarFallback>
 
             </Avatar>
-            <h2 className="text-white">{user.name}</h2>
-            <h2 className="text-white text-right">
+            <h2 className="">{user.name}</h2>
+            <h2 className=" text-right">
                 {moment().locale('fa').format('DD/MMMM/YYYY')}
 
             </h2>

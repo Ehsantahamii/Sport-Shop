@@ -19,6 +19,12 @@ import { IoHomeOutline } from "react-icons/io5";
 import { TbCategoryPlus } from "react-icons/tb";
 import { GrNote } from "react-icons/gr";
 import { HiShoppingBag } from "react-icons/hi";
+import { LiaCommentDollarSolid } from "react-icons/lia";
+import { MdOutlineShoppingBag } from "react-icons/md";
+import { MdOutlineRateReview } from "react-icons/md";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { MdInterests } from "react-icons/md";
+import { IoExitOutline } from "react-icons/io5";
 import { MdWeb } from "react-icons/md";
 import UserChange from "./UserChange"
 import { ProfileCard } from "./ProfileCard";
@@ -29,74 +35,65 @@ import { logout } from "@/actions/authAction";
 export default function Example() {
 
     return (
-        <Command className="sidebar bg-foreground px-4 py-4 w-[20dvw] max-w-[420px] min-w-[350px] card-shadow">
+        <Command className="sidebar hidden px-4 py-4 lg:w-1/3 max-w-[420px] lg:min-w-[350px] card-shadow lg:block">
             <div className="flex justify-between items-center">
                 <ProfileCard />
 
                 <UserChange />
             </div>
-            <Command className="bg-transparent">
+            <Command className="">
                 <CommandEmpty>عدم دریافت اطلاعات...</CommandEmpty>
-                <CommandGroup className="text-[1rem] text-white  mt-4" heading="ناحیه کاربری" >
+                <CommandGroup className="text-[1rem]  mt-4" heading="ناحیه کاربری" >
                     <CommandSeparator className="mb-4 mt-1" />
                     <CommandItem >
-                        <Link className="flex-hz items-normal gap-1 w-full" href="/dashboard">
+                        <Link className="w-full h-full flex items-normal gap-1" href="/dashboard">
                             <IoHomeOutline />
                             پیشخوان
                         </Link>
                     </CommandItem>
 
                     <CommandItem>
-                        <Accordion type="multiple" collapsible className="w-full h-full">
-                            <AccordionItem className="border-0 p-0 m-0" value="item-1">
-                                <AccordionTrigger className="flex-hz justify-start items-center gap-1 p-0">
-                                    <HiShoppingBag />
-                                    محصولات</AccordionTrigger>
-                                <AccordionContent >
-                                    <Command>
-                                        <CommandItem>
-                                            <Link className="w-full h-full" href="/dashboard/allproducts">محصولات</Link>
-                                        </CommandItem>
-                                        <CommandItem>افزودن محصول جدید</CommandItem>
-                                    </Command>
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
+                        <Link className="w-full h-full flex items-normal gap-1" href="/dashboard/orders">
+                            <MdOutlineShoppingBag />
+                            سفارشات من
+                        </Link>
+
                     </CommandItem>
+
                     <CommandItem>
-                        <Link className="w-full h-full flex-hz items-normal gap-1" href="/dashboard/addcategory">
-                            <TbCategoryPlus />
-                            افزودن دسته بندی
+                        <Link className="w-full h-full flex items-normal gap-1" href="/dashboard/addresses">
+                            {/* <TbCategoryPlus /> */}
+                            <FaMapLocationDot />
+                            آدرس ها
                         </Link>
                     </CommandItem>
 
                     <CommandItem>
-                        <Accordion type="multiple" collapsible className="w-full ">
-                            <AccordionItem className="border-0 p-0 m-0" value="item-1">
-                                <AccordionTrigger className="flex-hz justify-start items-center gap-1 p-0">
-                                    <GrNote />
-                                    وبلاگ</AccordionTrigger>
-                                <AccordionContent>
-                                    <Command >
-                                        <CommandItem>
-                                            وبلاگ</CommandItem>
-                                        <CommandItem>افزودن وبلاگ جدید</CommandItem>
-                                    </Command>
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
+                        <Link className="w-full h-full flex items-normal gap-1" href={"/dashboard/transactions"}>
+                        <LiaCommentDollarSolid />
+                        تراکنش ها
+                        </Link>
                     </CommandItem>
-                    <CommandItem>ادمین ها</CommandItem>
-                    <CommandItem>علاقه مندی ها</CommandItem>
-                    <CommandItem>نظرات</CommandItem>
-                    <CommandItem><Link className="flex-hz items-normal gap-1 w-full" href={"/"}>
+                    <CommandItem>
+                        <Link className="w-full h-full flex items-normal gap-1" href={"/dashboard/favorites"}>
+                        <MdInterests />
+                            علاقه مندی ها
+                        </Link>
+                    </CommandItem>
+                    <CommandItem>
+                        <Link className="w-full h-full flex items-normal gap-1" href={"/dashboard/send-review"}>
+                        <MdOutlineRateReview />
+                        ثبت نظر
+                        </Link>
+                    </CommandItem>
+                    <CommandItem><Link className="w-full h-full flex items-normal gap-1" href={"/"}>
                         <MdWeb />
-                        بازدید سایت
+                        بازگشت به صفحه اصلی
                     </Link>
                     </CommandItem>
-                    <CommandItem className="text-red-500 ">
+                    <CommandItem className="text-red-500 hover:text-red-700 flex items-normal gap-1">
+                        <IoExitOutline />
                         <form action={logout}>
-
                             <button >خروج از حساب کاربری</button>
                         </form>
                     </CommandItem>

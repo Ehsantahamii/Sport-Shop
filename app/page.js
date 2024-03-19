@@ -6,14 +6,10 @@ import Category from "@/template//Category";
 
 export default function Home() {
   return (
-    <main className="main">
-      <div className="w-[96vw] max-w-[1320px] mx-auto">
-        <Header />
-        <Navbar />
-        <Slider />
-        <Cards />
-        <Category/>
-      </div>
-    </main>
+    <>
+      <Slider />
+      <Cards />
+      <Category />
+    </>
   );
 }

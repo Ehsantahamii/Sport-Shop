@@ -7,9 +7,9 @@ function DashboardLayout({ children }) {
 
   return (
     <AuthProvider>
-      <main className="bg-gray-900 w-full h-screen flex flex-row ">
+      <main className=" w-full max-w-full  h-screen max-h-[550px] my-12 mx-auto flex flex-row justify-center gap-8 ">
         <SideBar />
-        <div className="p-5">
+        <div className=" w-[85%] lg:w-2/3 mx-auto p-5 overflow-y-auto card-shadow">
           {children}
         </div>
         <script src="https://github.com/babakhani/PersianDate/blob/master/dist/persian-date.min.js"></script>

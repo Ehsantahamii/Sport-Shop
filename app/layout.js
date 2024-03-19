@@ -7,6 +7,7 @@ import { yekanBakh } from "@/utils/fonts";
 import TanstackProvider from "@/providers/TanstackProvider";
 import { AuthProvider } from "@/context//authContext";
 import Header from "@/layouts//Header";
+import Navbar from "@/module//Navbar";
 
 export const metadata = {
   title: "فروشگاه لوازم ورزشی",
@@ -19,12 +20,16 @@ export default function RootLayout({ children }) {
       <body className={yekanBakh.className}>
         <AuthProvider>
           <ToastContainer
+            className="text-[#333]"
             stacked
             theme="light"
             rtl={true}
             closeOnClick={true}
           />
-          <TanstackProvider>{children}</TanstackProvider>
+          <main className="w-[95dvw] max-w-[1320px] mx-auto">
+            <Header />
+            <TanstackProvider>{children}</TanstackProvider>
+          </main>
         </AuthProvider>
       </body>
     </html>

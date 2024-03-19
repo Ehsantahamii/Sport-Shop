@@ -1,0 +1,13 @@
+li{
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+li.active {
+  background-color: #0055ff;
+  color: #fff;
+}

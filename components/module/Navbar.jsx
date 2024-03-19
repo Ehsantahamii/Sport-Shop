@@ -2,6 +2,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BsCart } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Searchbar_2 from "./searchBar/Searchbar_2";
+import Link from "next/link";
 
 const Navbar = () => {
     return (
@@ -9,15 +10,19 @@ const Navbar = () => {
             <GiHamburgerMenu className="cursor-pointer md:hidden" />
             <Searchbar_2 />
             <ul className="hidden md:flex md:gap-4">
-                <li className="hover:bg-[#333] py-2 px-2 gap-1 rounded-[90px] flex-hz cursor-pointer">
-                    خانه
-                    <IoIosArrowDown />
-                </li>
-                <li className="hover:bg-[#333] py-2 px-2 gap-1 rounded-[90px] flex-hz cursor-pointer">
-                    فروشگاه
-                    <IoIosArrowDown />
+                <Link href={"/"}>
+                    <li className="hover:bg-[#333] py-2 px-2 gap-1 rounded-[90px] flex-hz cursor-pointer">
+                        خانه
+                        <IoIosArrowDown />
+                    </li>
+                </Link>
+                <Link href='/products'>
+                    <li className="hover:bg-[#333] py-2 px-2 gap-1 rounded-[90px] flex-hz cursor-pointer">
+                        فروشگاه
+                        <IoIosArrowDown />
 
-                </li>
+                    </li>
+                </Link>
                 <li className="hover:bg-[#333] py-2 px-2 rounded-[90px] flex-hz cursor-pointer">درباره ما</li>
                 <li className="hover:bg-[#333] py-2 px-2 rounded-[90px] flex-hz cursor-pointer">تماس با ما</li>
                 <li className="hover:bg-[#333] py-2 px-2 rounded-[90px] flex-hz cursor-pointer">بلاگ</li>

@@ -23,7 +23,7 @@ const Header = () => {
       </div>
       <div className="w-2/3 flex-hz justify-end gap-5">
         <Searchbar_1 />
-        <Link href={"/dashboard"} className="w-[3.12rem] h-[3.12rem] rounded-[1rem] bg-[#fff3f0] hover:bg-[#ffe7e1] flex justify-center items-center">
+        <Link href={"/dashboard/favorites"} className="w-[3.12rem] h-[3.12rem] rounded-[1rem] bg-[#fff3f0] hover:bg-[#ffe7e1] flex justify-center items-center">
           <TiHeartOutline className="m-auto text-[1.5rem] text-[#ff8a66]" />
         </Link>
 
